@@ -1,8 +1,13 @@
-import Vue from 'vue'
-import Router from 'vue-router'
-import Home from './views/Home.vue'
+import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
+import Show from './views/Show.vue';
+import Swap from './views/Swap.vue';
+import Add from './views/Add.vue';
+import Redact from './views/Redact.vue';
 
-Vue.use(Router)
+
+Vue.use(Router);
 
 export default new Router({
   routes: [
@@ -11,13 +16,29 @@ export default new Router({
       name: 'home',
       component: Home
     },
+
     {
-      path: '/about',
-      name: 'about',
-      // route level code-splitting
-      // this generates a separate chunk (about.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import(/* webpackChunkName: "about" */ './views/About.vue')
+      path: '/articles/:id/show',
+      name: 'show',
+      component: Show
+    },
+
+    {
+      path: 'articles/:id/redact',
+      name: 'redact',
+      component: Redact
+    },
+
+    {
+      path: '/articles/:id/swap',
+      name: 'swap',
+      component: Swap
+    },
+
+    {
+      path: '/articles/:id/add',
+      name: 'add',
+      component: Add
     }
   ]
-})
+});
