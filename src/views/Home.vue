@@ -85,32 +85,56 @@
 
 <script>
 var axios = require('axios');
-
 export default {
   data: function() {
     return {
-      articles: []
+      message: "do worry right now!",
+      article: {
+        headline: "",
+        body: ""
+      }
     };
   },
   created: function() {
     axios
-    .get("http://localhost:3000/api/articles")
-    .then(function(response) {
-      this.articles = response.data;
-    }.bind(this));
-  },
- 
+    .get("http://localhost:3000/api/articles/" + this.$route.params.id)
+    .then(response => {
+      this.article = response.data;
+    });
+  },  
+  // normalize: function() {
+  //   axios
+  //   .get("http://localhost:3000/api/articles/" + this.$route.params.id)
+  //   .then(response => {
+  //     this.article = response.data;
+  //   });
+  // },  
   methods: {
     goToSwap: function() {
       axios
-      .get("http://localhost:3000/api/articles") + this.$route.params.id + "?version=swap"}
+      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
+      .then(response => {
+        this.article = response.data;
+        this.message = "Swap!";
+      });
+    },
+     goToRedact: function() {
+      axios
+      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=redact")
+      .then(response => {
+        this.article = response.data;
+        this.message = "Redact!";
+      });
+      },
+        goToAdd: function() {
+      axios
+      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=add")
+      .then(response => {
+        this.article = response.data;
+        this.message = "Add!";
+      });
+    }
   },
   computed: {}
-}
-
+};
 </script>
-
-<!-- http://localhost:3000/api/articles/3?version=swap -->
-
-     
-
