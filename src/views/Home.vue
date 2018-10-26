@@ -1,8 +1,8 @@
 <template>
   <div id="app">
       <div id="wrapper">
-        <!-- Intro -->
-          <section id="intro" class="wrapper style1 fullscreen fade-up">
+        <!-- Intro  nb changed selector tags to divs-->
+          <div id="intro" class="wrapper style1 fullscreen fade-up">
             <div class="inner">
               <h1>Fake News</h1>
               <p>Breaking news broken daily</p>
@@ -10,58 +10,31 @@
                 <li><a href="#one" class="button scrolly">Get Crackin'</a></li>
               </ul>
             </div>
-          </section>
+          </div>
 
         <!-- One -->
-          <section id="Article One" class="wrapper style2 spotlights">
-            <section>
-
+          <div id="Article One" class="wrapper style2 spotlights">
               <a href="#" class="image"><img src="images/pic01.jpg" alt="" data-position="center center" /></a>
               <div class="content">
                 <div class="inner">
-                  <div class="container">
-                       <h1>{{ message }}</h1>
-                       <div>
-                         <h1> {{ article.headline }}</h1>
-                         <h1> {{ article.body }}</h1>
-                      </div>
-                    </div>
-                  <ul class="actions">
-                    <li><a href="generic.html" class="button">Learn more</a></li>
-                  </ul>
+<!--                   <div class="container">
+ -->                  <div v-for="article in articles" class="actions">
+                    <h1>{{ article.headline }}</h1>
+                    <h1>{{ message }}</h1>
+
+                    <!-- <div class="col-md-4" v-for="recipe in recipes"> -->
+                    <!-- <li><a href="generic.html" class="button">{{ articles.headline }}</a></li> -->
+                  </a>
                 </div>
               </div>
-            </section>
-            <section>
-              <a href="#" class="image"><img src="images/pic02.jpg" alt="" data-position="top center" /></a>
-              <div class="content">
-                <div class="inner">
-                  <h2>Feugiat consequat</h2>
-                  <p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-                  <ul class="actions">
-                    <li><a href="generic.html" class="button">Learn more</a></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-            <section>
-              <a href="#" class="image"><img src="images/pic03.jpg" alt="" data-position="25% 25%" /></a>
-              <div class="content">
-                <div class="inner">
-                  <h2>Ultricies aliquam</h2>
-                  <p>Phasellus convallis elit id ullamcorper pulvinar. Duis aliquam turpis mauris, eu ultricies erat malesuada quis. Aliquam dapibus.</p>
-                  <ul class="actions">
-                    <li><a href="generic.html" class="button">Learn more</a></li>
-                  </ul>
-                </div>
-              </div>
-            </section>
-          </section>
-        <!-- Three -->
-          <section id="three" class="wrapper style1 fade-up">
+            </div>
+          </div>
+
+        <!-- Three ref Intro note above-->
+          <div id="three" class="wrapper style1 fade-up">
             <div class="inner">
               <div class="split style1">
-                <section>   
+             
                       <h3>Social</h3>
                       <ul class="icons">
                         <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
@@ -72,10 +45,10 @@
                       </ul>
                     </li>
                   </ul>
-                </section>
+              
               </div>
             </div>
-          </section>
+          </div>
         </div>
   </div>
 </template>
@@ -84,12 +57,14 @@
 </style>
 
 <script>
+
 var axios = require('axios');
+
 export default {
   data: function() {
     return {
       message: "do worry right now!",
-      article: {
+      articles: {
         headline: "",
         body: ""
       }
@@ -97,12 +72,12 @@ export default {
   },
   created: function() {
     axios
-    .get("http://localhost:3000/api/articles/" + this.$route.params.id)
+    .get("http://localhost:3000/api/articles/")
     .then(response => {
       this.article = response.data;
     });
   },  
-  // normalize: function() {
+  // goToShow: function() {
   //   axios
   //   .get("http://localhost:3000/api/articles/" + this.$route.params.id)
   //   .then(response => {
