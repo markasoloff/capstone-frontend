@@ -1,52 +1,54 @@
-
 <template>
-<div id="app">
- <div class="show">
+  <div id="app">
     <button @click="goToSwap()">Swap</button>
     <button @click="goToAdd()">Add</button>
     <button @click="goToRedact()">Redact</button>
+    <h2 v-for="article in articles">{{ article.headline }}</h2>
 <!--     <button @click="normalize()">Back to normal</button> -->
 
-    <div class="container">
-      <h1> {{ message }}</h1>
-      <h1>hello</h1>
-      <div class="headlines" v-for="article in articles">
+     <div class="container">
+     <h1>{{ message }}</h1>
+     <div>
        <h1> {{ article.headline }}</h1>
-      </div>
+       <h1> {{ article.body }}</h1>
     </div>
+  </div>
  </div>
-</div>
 </template>
-
 
 <style>
 </style>
 
 <script>
-  var axios = require('axios');
+var axios = require('axios');
 
-  export default {
-    data: function() {
-      return {
-        message: "do worry right now!",
-        articles:[]
-      };
-    },
-    created: function() {
-      axios.get("http://localhost:3000/api/articles").then(response => {
-        this.articles = response.data;
-      });
-    },
-
-
-  methods: {
-  normalize: function() {
+export default {
+  data: function() {
+    return {
+      message: "do worry right now!",
+      article: {
+        headline: "",
+        body: ""
+      }
+    };
+  },
+  created: function() {
     axios
     .get("http://localhost:3000/api/articles/" + this.$route.params.id)
     .then(response => {
       this.article = response.data;
     });
   },  
+
+  // normalize: function() {
+  //   axios
+  //   .get("http://localhost:3000/api/articles/" + this.$route.params.id)
+  //   .then(response => {
+  //     this.article = response.data;
+  //   });
+  // },  
+
+  methods: {
     goToSwap: function() {
       axios
       .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
@@ -77,3 +79,5 @@
   computed: {}
 };
 </script>
+
+<!-- encodeURIComponent('?x=шеллы') -->

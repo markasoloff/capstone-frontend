@@ -5,6 +5,7 @@ import Show from './views/Show.vue';
 import Swap from './views/Swap.vue';
 import Add from './views/Add.vue';
 import Redact from './views/Redact.vue';
+import test from './views/test.vue';
 
 
 Vue.use(Router);
@@ -24,7 +25,7 @@ export default new Router({
     },
 
     {
-      path: 'articles/:id/redact',
+      path: '/articles/:id/redact',
       name: 'redact',
       component: Redact
     },
@@ -39,6 +40,11 @@ export default new Router({
       path: '/articles/:id/add',
       name: 'add',
       component: Add
+    },
+    {
+      path: '/articles:id',
+      name: 'test',
+      component: test
     }
   ]
 });

@@ -120,3 +120,100 @@
                 </div>
               </section> -->
     </div>
+
+<!-- home -->
+
+    <template>
+  <div id="app">
+       <div id="wrapper">
+        Intro  nb changed selector tags to divs
+          <div id="intro" class="wrapper style1 fullscreen fade-up">
+            <div class="inner">
+              <h1>Fake News</h1>
+              <p>Breaking news broken daily</p>
+                </div>
+              <ul class="actions">
+                <li><a v-for="article in articles"></a></li>
+                <h1>{{message}}</h1>
+
+                <li><a href="#Add" class="button scrolly">Get Crackin'</a></li>
+                <li><a href="#Redact" class="button scrolly">Get Crackin'</a></li>
+              </ul>
+            </div>
+          </div>
+
+        
+        <!-- Three ref Intro note above-->
+          <div id="three" class="wrapper style1 fade-up">
+            <div class="inner">
+              <div class="split style1">
+             
+                      <h3>Social</h3>
+                      <ul class="icons">
+                        <li><a href="#" class="fa-twitter"><span class="label">Twitter</span></a></li>
+                        <li><a href="#" class="fa-facebook"><span class="label">Facebook</span></a></li>
+                        <li><a href="#" class="fa-github"><span class="label">GitHub</span></a></li>
+                        <li><a href="#" class="fa-instagram"><span class="label">Instagram</span></a></li>
+                        <li><a href="#" class="fa-linkedin"><span class="label">LinkedIn</span></a></li>
+                      </ul>
+                    </li>
+                  </ul>
+              
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+</template>
+
+<style>
+</style>
+
+<script>
+
+var axios = require('axios');
+
+export default {
+  data: function() {
+    return {
+      message: "do worry right now!",
+      articles: []
+      };
+    },
+  created: function() {
+    axios
+    .get("http://localhost:3000/api/articles/")
+    .then(function(response) {
+    this.articles = response.data;
+    }.bind(this));
+  },
+  methods: {
+    goToSwap: function() {
+      axios
+      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
+      .then(response => {
+        this.articles = response.data;
+        this.message = "Swap!";
+      });
+    },
+     goToRedact: function() {
+      axios
+      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=redact")
+      .then(response => {
+        this.articles = response.data;
+        this.message = "Redact!";
+      });
+      },
+        goToAdd: function() {
+      axios
+      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=add")
+      .then(response => {
+        this.articles = response.data;
+        this.message = "Add!";
+      });
+    }
+  },
+  computed: {}
+};
+</script>
+
