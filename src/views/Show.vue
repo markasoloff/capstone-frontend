@@ -8,7 +8,7 @@
      <div class="container">
      <h1>{{ message }}</h1>
      <div>
-       <h1> {{ article.headline }}</h1>
+       <h1> {{ article.title }}</h1>
        <h1> {{ article.body }}</h1>
     </div>
   </div>
@@ -26,12 +26,15 @@ export default {
     return {
       message: "do worry right now!",
       article: {
-        headline: "",
+        title: "",
         body: ""
       }
     };
   },
   created: function() {
+    // axios.get("http://localhost:3000/api/articles").then(response => {
+    //   this.articles = response.data;
+    // }).then()
     axios
     .get("http://localhost:3000/api/articles/" + this.$route.params.id)
     .then(response => {

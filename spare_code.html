@@ -217,3 +217,63 @@ export default {
 };
 </script>
 
+<!--  -->
+
+<button @click="goToSwap()">Swap</button>
+    <button @click="goToAdd()">Add</button>
+    <button @click="goToRedact()">Redact</button>
+    <button @click="normalize()">Back to normal</button>
+
+
+    <!-- old router code -->
+
+    import Vue from 'vue';
+import Router from 'vue-router';
+import Home from './views/Home.vue';
+import Show from './views/Show.vue';
+import Swap from './views/Swap.vue';
+import Add from './views/Add.vue';
+import Redact from './views/Redact.vue';
+import test from './views/test.vue';
+
+
+Vue.use(Router);
+
+export default new Router({
+  routes: [
+    {
+      path: '/',
+      name: 'home',
+      component: Home
+    },
+
+    {
+      path: '/articles/:id/show',
+      name: 'show',
+      component: Show
+    },
+
+    {
+      path: '/articles/:id/redact',
+      name: 'redact',
+      component: Redact
+    },
+
+    {
+      path: '/swap',
+      name: 'swap',
+      component: Swap
+    },
+
+    {
+      path: '/articles/:id/add',
+      name: 'add',
+      component: Add
+    },
+    {
+      path: '/articles:id',
+      name: 'test',
+      component: test
+    }
+  ]
+});

@@ -2,7 +2,7 @@
  <div class="redact">
     <button @click="goToRedact()">Redact</button>
      <div class="container">
-     <h1>{{ message }}</h1>
+     <h1>REDACT</h1>
      <div>
        <h1> {{ article.headline }}</h1>
        <h1> {{ article.body }}</h1>

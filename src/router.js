@@ -19,25 +19,31 @@ export default new Router({
     },
 
     {
-      path: '/articles/:id/show',
+      path: '/home',
+      name: 'home',
+      component: Home
+    },
+
+    {
+      path: '/show',
       name: 'show',
       component: Show
     },
 
     {
-      path: '/articles/:id/redact',
+      path: '/redact',
       name: 'redact',
       component: Redact
     },
 
     {
-      path: '/articles/:id/swap',
+      path: '/swap',
       name: 'swap',
       component: Swap
     },
 
     {
-      path: '/articles/:id/add',
+      path: '/add',
       name: 'add',
       component: Add
     },

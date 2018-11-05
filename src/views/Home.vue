@@ -1,20 +1,16 @@
 
 <template>
-<div id="app">
- <div class="show">
-    <button @click="goToSwap()">Swap</button>
-    <button @click="goToAdd()">Add</button>
-    <button @click="goToRedact()">Redact</button>
-<!--     <button @click="normalize()">Back to normal</button> -->
-
-    <div class="container">
-      <h1> {{ message }}</h1>
-      <h1>hello</h1>
-      <div class="headlines" v-for="article in articles">
-       <h1> {{ article.headline }}</h1>
-      </div>
-    </div>
- </div>
+  <div id="app">
+    <div class="home">
+      <div class="container-fluid">
+        <ul class="alt" v-for="article in articles">
+            
+          <li><a href="#" class="button">{{ article.title }}</a></li>
+            <!-- <blockquote>{{ article.body }}</blockquote> -->
+        </ul>
+</div>
+</div>
+</div>
 </div>
 </template>
 
@@ -22,14 +18,21 @@
 <style>
 </style>
 
+
 <script>
+
   var axios = require('axios');
 
   export default {
     data: function() {
       return {
-        message: "do worry right now!",
-        articles:[]
+        message: "Fake News",
+        articles: [
+          {
+            // title: "",
+            // body: ""
+          }
+        ]
       };
     },
     created: function() {
@@ -38,20 +41,19 @@
       });
     },
 
-
   methods: {
   normalize: function() {
     axios
     .get("http://localhost:3000/api/articles/" + this.$route.params.id)
     .then(response => {
-      this.article = response.data;
+      this.articles = response.data;
     });
   },  
     goToSwap: function() {
       axios
       .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
       .then(response => {
-        this.article = response.data;
+        this.articles = response.data;
         this.message = "Swap!";
       });
     },
@@ -60,7 +62,7 @@
       axios
       .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=redact")
       .then(response => {
-        this.article = response.data;
+        this.articles = response.data;
         this.message = "Redact!";
       });
       },
@@ -69,7 +71,7 @@
       axios
       .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=add")
       .then(response => {
-        this.article = response.data;
+        this.articles = response.data;
         this.message = "Add!";
       });
     }

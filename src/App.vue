@@ -1,14 +1,14 @@
 <template>
   <div id="app">
     <header>
-         <section id="sidebar">
+      <section id="sidebar">
         <div class="inner">
           <nav>
             <ul>                                      
-              <li><a href="/#/Home">Home</a></li>
-              <li><a href="/#/Swap">Swap</a></li>
-              <li><a href="/#/Add">Add</a></li>
-              <li><a href="/#/Redact">Redact</a></li>
+              <li><a href="/#/home">Home</a></li>
+              <li><a href="/#/swap">Swap</a></li>
+              <li><a href="/#/add">Add</a></li>
+              <li><a href="/#/redact">Redact</a></li>
             </ul>
           </nav>
         </div>
@@ -16,6 +16,7 @@
     </header>
 
 
+    <div style="height:100px"></div>
     <router-view/>
   
 
@@ -29,13 +30,13 @@
   </div>
 </template>
 
-<script>
+<!-- <script>
 var axios = require('axios');
 
 export default {
   data: function() {
     return {
-      message: "do worry right now!",
+      message: "we are on app.vue",
       articles:{}
     };
   },
@@ -84,3 +85,4 @@ export default {
   computed: {}
 };
 </script>
+ -->

@@ -1,0 +1,33 @@
+<template>
+  <div id="app">
+    <div class="swap">
+       <div class="container">
+       <h1>SWAP</h1>
+       <h1> {{ article.headline }}</h1>
+       <h1> {{ article.body }}</h1>
+    </div>
+  </div>
+ </div>
+</template>
+<style>
+</style>
+
+<script>
+var axios = require('axios');
+
+export default {
+  data: function() {
+    return {
+      message: "do worry right now!",
+      article: []
+    };
+  }, 
+  created: function() {
+    axios
+    .get("http://localhost:3000/api/articles/" + this.$route.params.id)
+    .then(response => {
+      this.article = response.data;
+    });
+  },
+}
+</script>

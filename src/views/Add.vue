@@ -2,7 +2,7 @@
  <div class="add">
     <button @click="goToAdd()">Add</button>
      <div class="container">
-     <h1>{{ message }}</h1>
+     <h1>ADD</h1>
      <div>
        <h1> {{ article.headline }}</h1>
        <h1> {{ article.body }}</h1>
