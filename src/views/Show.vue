@@ -8,8 +8,8 @@
      <div class="container">
      <h1>{{ message }}</h1>
      <div>
-       <h1> {{ article.title }}</h1>
-       <h1> {{ article.body }}</h1>
+       <h1> {{ article.headline }}</h1>
+        <div v-html="article.body"></div>
     </div>
   </div>
  </div>
@@ -32,14 +32,14 @@ export default {
     };
   },
   created: function() {
-    // axios.get("http://localhost:3000/api/articles").then(response => {
-    //   this.articles = response.data;
-    // }).then()
-    axios
-    .get("http://localhost:3000/api/articles/" + this.$route.params.id)
-    .then(response => {
+    axios.get("http://localhost:3000/api/articles/" + this.$route.params.id).then(response => {
       this.article = response.data;
     });
+    // axios
+    // .get("http://localhost:3000/api/articles/" + this.$route.params.id)
+    // .then(response => {
+    //   this.article = response.data;
+    // });
   },  
 
   // normalize: function() {
