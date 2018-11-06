@@ -4,9 +4,7 @@
     <div class="home">
       <div class="container-fluid">
         <ul class="alt" v-for="article in articles">
-            
-          <li><a href="#" class="button">{{ article.title }}</a></li>
-            <!-- <blockquote>{{ article.body }}</blockquote> -->
+          <li><button class="btn btn-secondary" @click="findShowByTitle(article.title)">{{ article.title }}</button></li> 
         </ul>
 </div>
 </div>
@@ -29,8 +27,9 @@
         message: "Fake News",
         articles: [
           {
-            // title: "",
-            // body: ""
+            title: "",
+            body: "",
+            id: ""
           }
         ]
       };
@@ -41,7 +40,8 @@
       });
     },
 
-  methods: {
+
+methods:{
   normalize: function() {
     axios
     .get("http://localhost:3000/api/articles/" + this.$route.params.id)
@@ -73,6 +73,13 @@
       .then(response => {
         this.articles = response.data;
         this.message = "Add!";
+      });
+    },
+    findShowByTitle: function(article_title) {
+      axios
+      .get("http://localhost:3000/api/articles/by_title?title=" + article_title)
+      .then(response => {
+        this.$router.push({name: 'articles-show', params: {id: response.data["id"]}});
       });
     }
   },

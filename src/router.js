@@ -6,6 +6,7 @@ import Swap from './views/Swap.vue';
 import Add from './views/Add.vue';
 import Redact from './views/Redact.vue';
 import test from './views/test.vue';
+import details from './components/details.vue';
 
 
 Vue.use(Router);
@@ -25,8 +26,8 @@ export default new Router({
     },
 
     {
-      path: '/show',
-      name: 'show',
+      path: '/articles/:id',
+      name: 'articles-show',
       component: Show
     },
 
