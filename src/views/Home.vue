@@ -3,7 +3,9 @@
   <div id="app">
     <div class="home">
       <div class="container-fluid">
-        <button class="btn btn-secondary" v-for="article in articles" v-on:click="findShowByApiUrl(article.apiUrl)">{{ article.webTitle }}</button>
+        <div v-for="article in articles">
+        <button class="btn btn-secondary"  v-on:click="findShowByApiUrl(article.apiUrl)">{{ article.webTitle }}</button>
+        </div>
        </div>
     </div>
   </div>

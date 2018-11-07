@@ -1,15 +1,16 @@
 <template>
  <div class="show">
+     <div class="container">
+     <h1>{{ message }}</h1>
     <button @click="goToSwap()">Swap</button>
     <button @click="goToAdd()">Add</button>
     <button @click="goToRedact()">Redact</button>
 <!--     <button @click="normalize()">Back to normal</button> -->
 
-     <div class="container">
-     <h1>{{ message }}</h1>
      <div>
-       <h1> {{ article.headline }}</h1>
-        <div v-html="article.body"></div>
+       <h3> {{ article.headline }}</h3>
+       <article v-html="article.body">{{ article.body }}</article>
+        <!-- <div v-html="article.body"></div> -->
     </div>
   </div>
  </div>
@@ -24,7 +25,7 @@ var axios = require('axios');
 export default {
   data: function() {
     return {
-      message: "do worry right now!",
+      message: "Welcome to the Show Page!",
       article: {
         title: "",
         body: ""
@@ -35,29 +36,16 @@ export default {
     axios.get("http://localhost:3000/api/articles/" + this.$route.params.id).then(response => {
       this.article = response.data;
     });
-    // axios
-    // .get("http://localhost:3000/api/articles/" + this.$route.params.id)
-    // .then(response => {
-    //   this.article = response.data;
-    // });
   },  
-
-  // normalize: function() {
-  //   axios
-  //   .get("http://localhost:3000/api/articles/" + this.$route.params.id)
-  //   .then(response => {
-  //     this.article = response.data;
-  //   });
-  // },  
 
   methods: {
     goToSwap: function() {
       axios
-      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
-      .then(response => {
-        this.article = response.data;
-        this.message = "Swap!";
-      });
+    .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
+    .then(response => {
+      this.article = response.data;
+      this.message = "Swap!";
+    }); 
     },
 
      goToRedact: function() {

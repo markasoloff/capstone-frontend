@@ -5,10 +5,7 @@
         <div class="inner">
           <nav>
             <ul>                                      
-              <li><a href="/#/home">Home</a></li>
-              <li><a href="/#/swap">Swap</a></li>
-              <li><a href="/#/add">Add</a></li>
-              <li><a href="/#/redact">Redact</a></li>
+              <li><a href="/#/">Home</a></li>
             </ul>
           </nav>
         </div>
