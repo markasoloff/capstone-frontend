@@ -17,6 +17,10 @@
 </template>
 
 <style>
+span.redacted {
+  background-color: orange;
+  color: orange;
+}
 </style>
 
 <script>
