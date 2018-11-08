@@ -6,6 +6,11 @@
           <nav>
             <ul>                                      
               <li><a href="/#/">Home</a></li>
+              <li><a href="/#/signup">Signup</a></li>
+              <li><a href="/#/login">Login</a></li>
+              <li><a href="/#/logout">Logout</a></li>
+              <li><a href="/#/template">Template</a></li>
+
             </ul>
           </nav>
         </div>
@@ -26,60 +31,3 @@
     </footer>
   </div>
 </template>
-
-<!-- <script>
-var axios = require('axios');
-
-export default {
-  data: function() {
-    return {
-      message: "we are on app.vue",
-      articles:{}
-    };
-  },
-  created: function() {
-    axios.get("http://localhost:3000/api/articles/").then(response => {
-      this.articles = response.data;
-    });
-  },
-
-
-  methods: {
-  normalize: function() {
-    axios
-    .get("http://localhost:3000/api/articles/" + this.$route.params.id)
-    .then(response => {
-      this.articles = response.data;
-    });
-  },  
-    goToSwap: function() {
-      axios
-      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
-      .then(response => {
-        this.articles = response.data;
-        this.message = "Swap!";
-      });
-    },
-
-     goToRedact: function() {
-      axios
-      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=redact")
-      .then(response => {
-        this.articles = response.data;
-        this.message = "Redact!";
-      });
-      },
-
-        goToAdd: function() {
-      axios
-      .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=add")
-      .then(response => {
-        this.articles = response.data;
-        this.message = "Add!";
-      });
-    }
-  },
-  computed: {}
-};
-</script>
- -->

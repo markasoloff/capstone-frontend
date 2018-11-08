@@ -5,6 +5,10 @@ import Show from './views/Show.vue';
 import Swap from './views/Swap.vue';
 import Add from './views/Add.vue';
 import Redact from './views/Redact.vue';
+import Signup from "./views/Signup.vue";
+import Login from "./views/Login.vue";
+import Logout from "./views/Logout.vue";
+import Template from "./views/template.vue";
 import test from './views/test.vue';
 import details from './components/details.vue';
 
@@ -46,6 +50,30 @@ export default new Router({
       path: '/articles:id',
       name: 'test',
       component: test
+    },
+
+    { 
+      path: "/signup", 
+      name: "signup", 
+      component: Signup 
+    },
+
+    {
+      path: "/login",
+      name: "login",
+      component: Login
+    },
+
+    {
+      path: "/logout",
+      name: "logout",
+      component: Logout
+    },
+
+    {
+      path: "/template",
+      name: "template",
+      component: Template
     }
   ]
 });
