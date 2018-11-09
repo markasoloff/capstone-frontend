@@ -9,6 +9,7 @@ import Signup from "./views/Signup.vue";
 import Login from "./views/Login.vue";
 import Logout from "./views/Logout.vue";
 import Template from "./views/template.vue";
+import Profile from "./views/Profile.vue";
 import test from './views/test.vue';
 import details from './components/details.vue';
 
@@ -74,6 +75,12 @@ export default new Router({
       path: "/template",
       name: "template",
       component: Template
+    },
+
+    {
+      path: "/profile",
+      name: "profile",
+      component: Profile
     }
   ]
 });

@@ -10,8 +10,9 @@
               <li><a href="/#/login">Login</a></li>
               <li><a href="/#/logout">Logout</a></li>
               <li><a href="/#/template">Template</a></li>
-
+              <li><a href="/#/profile">Profile</a></li>
             </ul>
+
           </nav>
         </div>
       </section>

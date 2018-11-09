@@ -5,12 +5,10 @@
     <button @click="goToSwap()">Swap</button>
     <button @click="goToAdd()">Add</button>
     <button @click="goToRedact()">Redact</button>
-<!--     <button @click="normalize()">Back to normal</button> -->
 
      <div>
-       <h3> {{ article.headline }}</h3>
+       <h3 v-html="article.headline">{{ article.headline }}</h3>
        <article v-html="article.body">{{ article.body }}</article>
-        <!-- <div v-html="article.body"></div> -->
     </div>
   </div>
  </div>
@@ -74,4 +72,3 @@ export default {
 };
 </script>
 
-<!-- encodeURIComponent('?x=шеллы') -->
