@@ -3,6 +3,10 @@ import App from './App.vue';
 import router from './router';
 import axios from 'axios';
 
+
+var SocialSharing = require('vue-social-sharing');
+Vue.use(SocialSharing);
+
 var jwt = localStorage.getItem("jwt");
 if (jwt) {
   axios.defaults.headers.common["Authorization"] = "Bearer " + jwt;

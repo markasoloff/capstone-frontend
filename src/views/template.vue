@@ -14,8 +14,14 @@
           <label>Substitution for that word:</label>
           <input type="text" class="form-control" v-model="newContent">
         </div>
-        <input type="submit" class="btn btn-primary" value="Submit">
+        <input @onclick="displaySub()" type="submit" class="btn btn-primary" value="Submit">
       </form>
+    </div>
+    <div class="container">
+      <h2>Substitute!</h2>
+      <div class="panel panel-default">
+        <div class="panel-body">{{ target }} </div>
+      </div>
     </div>
   </div>
 </template>
