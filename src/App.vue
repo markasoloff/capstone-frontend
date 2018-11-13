@@ -6,7 +6,7 @@
         <div class="inner">
           <nav>
             <ul>                                      
-              <li><a href="/#/">Home</a></li>
+              <li><a href="/#/" style="font-size: medium; font-weight: lighter;">(HOME)</a></li>
 <!--               <li><a href="/#/signup">Signup</a></li>
               <li><a href="/#/login">Login</a></li>
               <li><a href="/#/logout">Logout</a></li>
@@ -24,7 +24,7 @@
     <router-view/>
   
 
-    <footer id="footer" class="wrapper style1-alt">
+    <footer style="height:100px" id="footer" class="wrapper style1-alt">
       <div class="inner">
         <ul class="menu">
           <li>&copy; Untitled. All rights reserved.</li><li>Design: <a href="http://html5up.net">HTML5 UP</a></li>

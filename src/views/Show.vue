@@ -2,15 +2,15 @@
  <div class="show">
      <div class="container">
       <div class="editButtons">
-        <h1 class="animated shake">{{ message }}</h1>
+        <h1 style="font-size: 400%; text-shadow: 4px -3px 2px rgba(150, 150, 150, 0.79);">{{ message }}</h1>
           <button @click="goToSwap()">Swap</button>
           <button @click="goToAdd()">Add</button>
           <button @click="goToRedact()">Redact</button>
         </div>
      <div>
       <br>
-   <h3 v-html="article.headline">{{ article.headline }}</h3>
-     <article v-html="article.body">{{ article.body }}</article>
+   <h3 class="headline" v-html="article.headline">{{ article.headline }}</h3>
+     <article id="art" v-html="article.body">{{ article.body }}</article>
     </div>
   
     <br>
@@ -37,14 +37,14 @@
        </network>
      </div>
    </social-sharing>
-   <ul class="icons" style="font-size: 500%;">
+   <ul class="icons" style="font-size: 400%;">
      <li>
         <a href="https://twitter.com/intent/tweet?button_hashtag=FakeNewsApp&ref_src=twsrc%5Etfw" data-size="large" data-related="blastropodcast" data-dnt="true" data-show-count="false"class="fa-twitter">
           <span class="label">Twitter</span></a></li>
    </ul>
           <div class="editButtons">
             <button>
-              <a href="https://www.youtube.com/watch?v=Kas6akz1jWU&t=1s">Leave Site for Greener Pastures</a>
+              <a href="https://youtu.be/FtbrwGidqR8?t=2">Leave Site for Greener Pastures</a>
             </button>
           </div>
   </div>
@@ -53,19 +53,33 @@
 
 <style>
 
-/**{font-family: Arial !important;}*/
+
+
+.headline{
+  font-size: large;
+  text-align: center;
+  padding-top: 2em;
+
+}
+
+#art {
+  border-style: solid;
+    border: 2px solid #fff3;
+     border-radius: 25px;
+     border-width: 1px;
+     padding: 3em;
+}
+
 
 span.add {
-  color: yellow;
+  color: #C3FDB8;
 
 }
 
-div.animated pulse {
-  -webkit-animation-duration: .5s;
-  -webkit-animation-delay: 0.5s;
-  color: yellow;
-}
+span.swap {
+    color: #C3FDB8;
 
+ }
 
 
 span.redacted {
@@ -79,6 +93,7 @@ ul.icons {
 
 div.editButtons {
   text-align: center;
+  padding: 1em;
 
 }
 
@@ -99,7 +114,7 @@ var axios = require('axios');
 export default {
   data: function() {
     return {
-      message: "Welcome to the Show Page!",
+      message: "Change Your News",
       article: {
         title: "",
         body: ""

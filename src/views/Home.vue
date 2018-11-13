@@ -3,9 +3,13 @@
   <div id="app">
     <div class="home">
       <div class="container-fluid">
-        <div v-for="article in articles">
-        <button class="btn btn-secondary"  v-on:click="findShowByApiUrl(article.apiUrl)">{{ article.webTitle }}</button>
+        <h1 class="homeTitle">Fake News!</h1>
+          <hr>
+        <div class="buttonList" v-for="article in articles">
+        <!-- <br/> -->
+        <button class="btn btn-secondary" v-on:click="findShowByApiUrl(article.apiUrl)">{{ article.webTitle }}</button>
         </div>
+          <blockquote class="subTitle">( select a headline from above, old chum )</blockquote>
        </div>
     </div>
   </div>
@@ -13,6 +17,29 @@
 
 
 <style>
+
+.homeTitle {
+  text-align: center;
+  font-size: 700%;
+  text-shadow: 4px -3px 2px rgba(150, 150, 150, 0.79);
+  margin-top: 0px;
+  margin-bottom: 0px;
+}
+
+.buttonList {
+  text-align: center;
+  margin-top:5px;
+  margin-bottom:15px;
+
+}
+
+.subTitle {
+  text-align: center;
+  margin-top: 0px;
+  margin-bottom: 10px;
+
+}
+
 </style>
 
 
@@ -28,7 +55,7 @@
       };
     },
     created: function() {
-      axios.get("https://content.guardianapis.com/search?order-by=newest&q=Trump&show-fields=body&api-key=963a71b0-c998-426c-b488-21146e4d02df")
+      axios.get("https://content.guardianapis.com/search?order-by=newest&page-size=4&q=Trump&show-fields=body&api-key=963a71b0-c998-426c-b488-21146e4d02df")
         .then(response => {
           this.articles = response.data.response.results;
         });
