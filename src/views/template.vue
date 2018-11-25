@@ -20,7 +20,7 @@
     <div class="container">
       <h2>Substitute!</h2>
       <div class="panel panel-default">
-        <div class="panel-body">{{ target }} </div>
+        <div class="panel-body">{{ newContent }} </div>
       </div>
     </div>
   </div>
