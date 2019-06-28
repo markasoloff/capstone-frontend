@@ -6,7 +6,7 @@
         <div class="inner">
           <nav>
             <ul>                                      
-              <li><a href="/#/" style="font-size: medium; font-weight: lighter;">(HOME)</a></li>
+              <li><a href="/#/">Home</a></li>
               <li><a href="/#/signup">Signup</a></li>
               <li><a href="/#/login">Login</a></li>
               <li><a href="/#/logout">Logout</a></li>

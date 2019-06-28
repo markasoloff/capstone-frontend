@@ -63,14 +63,14 @@
     methods:{
       normalize: function() {
         axios
-          .get("http://localhost:3000/api/articles/" + this.$route.params.id)
+          .get("https://murmuring-tor-27043.herokuapp.com/articles/" + this.$route.params.id)
           .then(response => {
             this.articles = response.data;
           });
       },  
       goToSwap: function() {
         axios
-          .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=swap")
+          .get("https://murmuring-tor-27043.herokuapp.com/articles/" + this.$route.params.id + "?version=swap")
           .then(response => {
             this.articles = response.data;
             this.message = "Swap!";
@@ -78,7 +78,7 @@
       },
       goToRedact: function() {
         axios
-          .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=redact")
+          .get("https://murmuring-tor-27043.herokuapp.com/articles/" + this.$route.params.id + "?version=redact")
           .then(response => {
             this.articles = response.data;
             this.message = "Redact!";
@@ -86,7 +86,7 @@
       },
       goToAdd: function() {
         axios
-          .get("http://localhost:3000/api/articles/" + this.$route.params.id + "?version=add")
+          .get("https://murmuring-tor-27043.herokuapp.com/articles/" + this.$route.params.id + "?version=add")
           .then(response => {
             this.articles = response.data;
             this.message = "Add!";
@@ -95,7 +95,7 @@
       findShowByApiUrl: function(articleApiUrl) {
         var params = {api_ref: articleApiUrl};
         axios
-          .post("http://localhost:3000/api/articles/by_api_ref", params)
+          .post("https://murmuring-tor-27043.herokuapp.com/articles/by_api_ref", params)
           .then(response => {
             this.$router.push({name: 'articles-show', params: {id: response.data["id"]}});
           });
