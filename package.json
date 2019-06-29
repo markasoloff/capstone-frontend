@@ -5,11 +5,13 @@
   "scripts": {
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
-    "start": "node server.js"
+    "start": "node server.js",
+    "postinstall": "npm install express"
   },
   "dependencies": {
     "animate.css": "^3.7.2",
     "axios": "^0.18.1",
+    "connect-history-api-fallback": "^1.6.0",
     "vue": "^2.6.10",
     "vue-router": "^3.0.6",
     "vue-social-sharing": "^2.4.5"
