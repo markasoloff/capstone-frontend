@@ -1,5 +1,5 @@
 const express = require('express');
-const port = process.env.PORT || 8080;
+// const port = process.env.PORT || 8080;
 const app = express();
 
 // var path = require('path');
@@ -10,5 +10,8 @@ app.get(/.*/, function(req, res) {
   res.sendfile(__dirname + "/dist/index.html");  
 });
 
-app.listen(port);
-console.log("server started...");
+// app.listen(port);
+app.listen(process.env.PORT || 3000, function() {
+  console.log("Express server listening on port %d in %s mode", this.address().port,app.settings.env);
+});
+// console.log("server started...");
