@@ -4,9 +4,10 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build",
+    "build": "node build/build.js",
     "start": "node server.js",
-    "postinstall": "npm install express"
+    "postinstall": "npm install express",
+    "heroku-postbuild": "npm install --only=dev --no-shrinkwrap && npm run build"
   },
   "dependencies": {
     "animate.css": "^3.7.2",

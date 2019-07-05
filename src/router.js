@@ -5,13 +5,13 @@ import Show from './views/Show.vue';
 import Swap from './views/Swap.vue';
 import Add from './views/Add.vue';
 import Redact from './views/Redact.vue';
-import Signup from "./views/Signup.vue";
-import Login from "./views/Login.vue";
-import Logout from "./views/Logout.vue";
-import Template from "./views/template.vue";
-import Profile from "./views/Profile.vue";
-import test from './views/test.vue';
-import details from './components/details.vue';
+// import Signup from "./views/Signup.vue";
+// import Login from "./views/Login.vue";
+// import Logout from "./views/Logout.vue";
+// import Template from "./views/template.vue";
+// import Profile from "./views/Profile.vue";
+// import test from './views/test.vue';
+// import details from './components/details.vue';
 
 
 Vue.use(Router);
